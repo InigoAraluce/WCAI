@@ -130,7 +130,7 @@ if st.button("Submit"):
         assigned_character = df_aux.loc[df_aux['similarity'].idxmax(), 'name']
 
         #Path to image
-        image_path = "characters/images/" + assigned_character + ".jpg"
+        image_path = "characters/images/" + assigned_character + ".png"
         st.header("You are most similar to: ")
         st.image(image_path, width=500)
 
