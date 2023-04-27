@@ -121,16 +121,14 @@ if st.button("Submit"):
         else:
             numbers = df.drop(["name"], axis=1)
 
-        numbers_norm = (numbers - numbers.mean()) / numbers.std()
-
         new_row = pd.DataFrame([results], columns=numbers.columns)
-        new_row_norm = (new_row - numbers.mean()) / numbers.std()
+        
+        df_aux = df
+        #Calculate similarity for each character
+        df_aux['similarity'] = 100-(np.linalg.norm(new_row.values[0] - numbers.values, axis=1))/math.sqrt(17)
+        
+        assigned_character = df_aux.loc[df_aux['similarity'].idxmax(), 'name']
 
-        knn = KNeighborsClassifier(n_neighbors=1)
-        knn.fit(numbers_norm, names)
-        prediction = knn.predict(new_row_norm)
-
-        assigned_character = prediction[0]
         #Path to image
         image_path = "characters/images/" + assigned_character + ".jpg"
         st.header("You are most similar to: ")
@@ -141,17 +139,7 @@ if st.button("Submit"):
         else:
             st.subheader(assigned_character)
 
-        # extract the actual point, the predicted point
-        df_all = pd.read_csv("characters/characters_all.csv")
-        actual_point_norm = new_row_norm.values[0]
-        actual_point = actual_point_norm * numbers.std() + numbers.mean()
-        predicted_row = df_all.loc[df_all['name'] == assigned_character]
-        predicted_point = predicted_row.drop(["name","from"], axis=1).values[0]
-
-        euclidean_distance = np.linalg.norm(actual_point - predicted_point)
-        similarity = 100 - euclidean_distance/math.sqrt(17)
-
-        st.subheader("With a similarity of :orange[{:.2f}%]".format(similarity))
+        st.subheader("With a similarity of :orange[{:.2f}%]".format(df_aux['similarity'].max()))
 
     #CODE TO ADD CHARACTERS TO THE DATAFRAME
     elif MODE==1: 
