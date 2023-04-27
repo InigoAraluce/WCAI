@@ -6,3 +6,5 @@ URL: https://inigoaraluce-wcai-whoami-q0hjy1.streamlit.app/
 WCAI uses KNN and Euclidean distances to find the charater that resembles your survey the most.
 
 You can either get the most similar character out of all the ones that I included or select a specific TV show or movie.
+
+DISCLAIMER: I do not own the rights to the images used by the project.
