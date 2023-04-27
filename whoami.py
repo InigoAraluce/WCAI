@@ -11,7 +11,7 @@ st.subheader("Answer this questionnaire and find out which character you resembl
 #lenght = st.radio(" ", ("Short: 10 questions","Medium: 35 questions (Recommended)", "Long: 70 questions"),index=1, label_visibility="collapsed")
 
 st.markdown("Select the :red[movie] or :red[TV show] from which you want to find your most similar character.")
-option = st.selectbox("**Movie or show**", ("All","How I met your Mother","Friends","The Office","Arcane"), label_visibility="collapsed")
+option = st.selectbox("**Movie or show**", ("All","How I met your Mother","Friends","Family guy", "The Office","The Simpsons","Arcane", "Breaking Bad"), label_visibility="collapsed")
 
 
 st.header("Survey")
@@ -21,7 +21,7 @@ st.markdown("Slide the bar to the value that best describes you. ")
 st.subheader("I'm more of an :green[Introvert **(0)**],  or an :green[Extrovert **(100)**]")
 q1 = st.slider("q1", 0, 100, 50, label_visibility="collapsed" )
 
-st.subheader(":green[Thinker],  or a :green[Doer]")
+st.subheader(":green[Thinker],  or a :green[Impulsive]")
 q2 = st.slider("q2", 0, 100, 50, format='%.0f', label_visibility="collapsed")
 
 st.subheader(":green[Hard worker],  or :green[Lazy]")
@@ -42,7 +42,7 @@ q7 = st.slider("q7", 0, 100, 50, label_visibility="collapsed")
 st.subheader(":green[Uptight],  or :green[Free spirit]")
 q8 = st.slider("q8", 0, 100, 50, label_visibility="collapsed")
 
-st.subheader(":green[Practical],  or :green[Imaginative]")
+st.subheader(":green[Pragmatic],  or :green[Imaginative]")
 q9 = st.slider("q9", 0, 100, 50, label_visibility="collapsed")
 
 st.subheader(":green[Leader],  or :green[Follower]")
@@ -92,6 +92,18 @@ if st.button("Submit"):
 
     elif option == "Friends":
         path = "characters/friends/characters.csv"
+        df = pd.read_csv(path)
+    
+    elif option == "Family guy":
+        path = "characters/familyguy/characters.csv"
+        df = pd.read_csv(path)
+
+    elif option == "The Simpsons":
+        path = "characters/simpsons/characters.csv"
+        df = pd.read_csv(path)
+    
+    elif option == "Breaking Bad":
+        path = "characters/breakingbad/characters.csv"
         df = pd.read_csv(path)
 
     elif option == "All":
@@ -143,17 +155,17 @@ if st.button("Submit"):
 
     #CODE TO ADD CHARACTERS TO THE DATAFRAME
     elif MODE==1: 
-        name = "Creed Bratton"
-        show = "The Office"
+        name = "Saul Goodman"
+        show = "Breaking Bad"
         if option != "All":
             df.loc[len(df)] = [name] + results
             df.to_csv(path, index=False)
-            st.header("Added to the database")
+            st.subheader("Added " + name + " to the database " + option)
 
         else:
             df.loc[len(df)] = [name] + [show] + results
             df.to_csv(path, index=False)
-            st.header("Added to the database")
+            st.subheader("Added " + name + " to the database " + option)
 
     
 
