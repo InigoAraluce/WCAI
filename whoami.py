@@ -11,7 +11,7 @@ st.subheader("Answer this questionnaire and find out which character you resembl
 #lenght = st.radio(" ", ("Short: 10 questions","Medium: 35 questions (Recommended)", "Long: 70 questions"),index=1, label_visibility="collapsed")
 
 st.markdown("Select the :red[movie] or :red[TV show] from which you want to find your most similar character.")
-option = st.selectbox("**Movie or show**", ("All","How I met your Mother","Friends","Family guy", "The Office","The Simpsons","Arcane", "Breaking Bad"), label_visibility="collapsed")
+option = st.selectbox("**Movie or show**", ("All","How I met your Mother","Friends","Family guy", "The Office","Game of Thrones","The Simpsons","Arcane", "Breaking Bad"), label_visibility="collapsed")
 
 
 st.header("Survey")
@@ -98,6 +98,10 @@ if st.button("Submit"):
         path = "characters/familyguy/characters.csv"
         df = pd.read_csv(path)
 
+    elif option == "Game of Thrones":
+        path = "characters/got/characters.csv"
+        df = pd.read_csv(path)
+
     elif option == "The Simpsons":
         path = "characters/simpsons/characters.csv"
         df = pd.read_csv(path)
@@ -135,16 +139,22 @@ if st.button("Submit"):
         st.image(image_path, width=500)
 
         if option == "All":
-            st.subheader(assigned_character + " from " + df[df["name"]==assigned_character]["from"].values[0])
+            if assigned_character == "Joffrey Baratheon":
+                st.subheader("Joffrey \"Baratheon\" from " + df[df["name"]==assigned_character]["from"].values[0])
+            else:
+                st.subheader(assigned_character + " from " + df[df["name"]==assigned_character]["from"].values[0])
         else:
-            st.subheader(assigned_character)
+            if assigned_character == "Joffrey Baratheon":
+                st.subheader("Joffrey \"Baratheon\"")
+            else:
+                st.subheader(assigned_character)
 
         st.subheader("With a similarity of :orange[{:.2f}%]".format(df_aux['similarity'].max()))
 
     #CODE TO ADD CHARACTERS TO THE DATAFRAME
     elif MODE==1: 
-        name = "Saul Goodman"
-        show = "Breaking Bad"
+        name = "Joffrey \"Baratheon\""
+        show = "Game of Thrones"
         if option != "All":
             df.loc[len(df)] = [name] + results
             df.to_csv(path, index=False)

@@ -25,7 +25,7 @@ Jan Levinson,The Office,20,9,18,12,16,90,74,9,13,5,19,58,77,9,31,77,32
 Andy Bernard,The Office,80,64,64,70,76,65,31,37,68,64,50,74,28,66,76,32,41
 Stanley Hudson,The Office,3,41,85,41,21,70,92,13,15,95,34,40,67,25,37,60,78
 Creed Bratton,The Office,72,94,93,68,100,63,26,94,99,78,4,16,32,53,64,90,71
-Homer Simpson,The Simpsons,81,85,89,68,73,66,38,66,77,36,58,44,37,65,44,34,60
+Homer Simpson,The Simpsons,91,85,89,76,86,70,38,76,80,36,58,44,37,65,44,41,60
 Marge Simpson,The Simpsons,26,31,21,58,27,20,48,35,42,70,74,58,59,81,35,22,30
 Lisa Simpson,The Simpsons,19,15,10,18,13,27,72,27,17,23,68,85,7,66,45,31,44
 Bart Simpson,The Simpsons,75,69,65,63,82,68,40,77,74,12,13,29,83,38,53,81,71
@@ -46,3 +46,13 @@ Jessie Pinkman,Breaking Bad,56,75,69,80,83,68,67,67,63,88,61,67,64,53,41,41,68
 Gustavo Fring,Breaking Bad,1,10,8,20,1,59,82,6,9,11,27,33,47,45,22,82,66
 Mike Ehrmantraut,Breaking Bad,4,5,18,28,13,72,88,3,15,39,88,10,90,15,8,41,81
 Saul Goodman,Breaking Bad,88,41,33,50,31,46,64,73,34,46,22,33,44,46,73,65,47
+John Snow,Game of Thrones,13,27,12,62,29,43,61,24,40,15,91,17,75,65,3,14,84
+Daenerys Targaryen,Game of Thrones,33,61,23,43,58,61,67,31,35,8,55,44,70,36,36,45,43
+Cersei Lannister,Game of Thrones,15,10,38,38,13,86,82,17,20,22,8,21,88,3,37,82,28
+Jaime Lannister,Game of Thrones,37,54,21,58,33,56,44,31,31,34,41,15,98,50,27,43,86
+Tyrion Lannister,Game of Thrones,74,36,45,51,19,61,63,82,23,22,68,31,35,63,37,28,67
+Ned Stark,Game of Thrones,17,25,7,63,15,25,37,46,45,6,91,14,96,86,1,9,87
+Arya Stark,Game of Thrones,40,87,41,81,71,77,64,80,41,39,55,59,39,41,9,37,68
+Jorah Mormont,Game of Thrones,21,42,25,73,33,42,48,48,56,68,87,28,82,71,19,24,74
+Tywin Lannister,Game of Thrones,9,2,7,15,1,66,72,2,12,13,5,11,88,13,24,92,80
+Joffrey Baratheon,Game of Thrones,71,98,77,82,99,90,56,38,67,46,0,62,41,0,97,100,58
